@@ -1,20 +1,31 @@
 
 from tkinter import *
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askdirectory
+# import tkFileDialog
 class FolderBrowser():
+
+    def openFolderBrowser(self):
+        filename = askdirectory(initialdir="/",title='Please select a directory')
+        # pathlabel.config(text=filename)
+        print(str(filename))
+
     def __init__(self,master):
         self.master = master
         master.title("Browse Root of Android  App")
-        self.label = Label(master, text="This is our first GUI!")
+        # SELECT JAVA FOLDER
+        self.label = Label(master, text="Privacy  Policy Generator Android for Android App")
         self.label.pack()
         pathlabel = Label(root)
         pathlabel.pack()
-        filename = askopenfilename()
-        pathlabel.config(text=filename)
+
+        # Open Folder Browser
+
+        b = Button(master, text="OK", command=self.openFolderBrowser)
+        b.pack()
+        
 
 
-    def openFolderBrowser(self):
-        print("Wait")
+    
 
 root = Tk()
 

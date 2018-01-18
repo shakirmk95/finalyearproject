@@ -1,5 +1,5 @@
 
-from FileScanner import FileScanner
+# from FileScanner import FileScanner
+from FolderBrowser import *
 
-def main():
-    print("Hello")
+FolderBrowser()
