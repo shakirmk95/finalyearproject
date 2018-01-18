@@ -2,12 +2,24 @@
 from tkinter import *
 from tkinter.filedialog import askdirectory
 # import tkFileDialog
+import os
+from os import listdir
+from os.path import isfile, join
+import glob
+
 class FolderBrowser():
+    def findAllJavaFilesInFolder(self,path):
+        print("PATH\t\t\t"+path)
+        javaFiles = glob.glob(path + '/**/*.java', recursive=True)
+        for javafile  in javaFiles:
+            print(javafile)
+        sys.exit(0)
+
 
     def openFolderBrowser(self):
         filename = askdirectory(initialdir="/",title='Please select a directory')
-        # pathlabel.config(text=filename)
-        print(str(filename))
+        filename = str(filename)
+        self.findAllJavaFilesInFolder(filename)
 
     def __init__(self,master):
         self.master = master
@@ -20,7 +32,7 @@ class FolderBrowser():
 
         # Open Folder Browser
 
-        b = Button(master, text="OK", command=self.openFolderBrowser)
+        b = Button(master, text="SELECT JAVA FOLDER", command=self.openFolderBrowser)
         b.pack()
         
 
