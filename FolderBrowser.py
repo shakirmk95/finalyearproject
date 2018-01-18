@@ -20,3 +20,5 @@ root = Tk()
 
 my_gui = FolderBrowser(root)
 root.mainloop()
+
+sys.exit(0)
