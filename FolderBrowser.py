@@ -6,14 +6,17 @@ import os
 from os import listdir
 from os.path import isfile, join
 import glob
-
+from FileScanner import FileScanner
 class FolderBrowser():
     def findAllJavaFilesInFolder(self,path):
-        print("PATH\t\t\t"+path)
         javaFiles = glob.glob(path + '/**/*.java', recursive=True)
-        for javafile  in javaFiles:
-            print(javafile)
-        sys.exit(0)
+        self.javaFiles = javaFiles
+        fileScanner =  FileScanner(self.javaFiles)
+        self.master.withdraw()
+
+
+
+
 
 
     def openFolderBrowser(self):
@@ -22,22 +25,25 @@ class FolderBrowser():
         self.findAllJavaFilesInFolder(filename)
 
     def __init__(self,master):
+        self.javaFiles =  []
         self.master = master
         master.title("Browse Root of Android  App")
-        # SELECT JAVA FOLDER
+
+
+
         self.label = Label(master, text="Privacy  Policy Generator Android for Android App")
         self.label.pack()
         pathlabel = Label(root)
         pathlabel.pack()
 
-        # Open Folder Browser
 
         b = Button(master, text="SELECT JAVA FOLDER", command=self.openFolderBrowser)
         b.pack()
-        
+            
 
+    def getJavaPathList(self):
+        return self.javaFiles
 
-    
 
 root = Tk()
 

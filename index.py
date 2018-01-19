@@ -1,5 +1,5 @@
 
 # from FileScanner import FileScanner
 from FolderBrowser import *
-
-FolderBrowser()
+folderBrowser = FolderBrowser()
+sys.exit(0)

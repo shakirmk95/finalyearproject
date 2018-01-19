@@ -1,3 +1,9 @@
 class JavaClass():
     def __init__(self):
-        print("Java  Class Created")
+        className = ""
+        functionCount = 0
+        functions = []
+        subClassCount = 0
+        subClasses = []
+
+        
